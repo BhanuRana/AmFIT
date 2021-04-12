@@ -1,56 +1,42 @@
+import 'react-native-gesture-handler';
 import React from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  View,
-  Text,
-  useColorScheme,
-} from 'react-native';
-import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {NavigationContainer} from '@react-navigation/native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import Track from './screens/Track/Track';
+import Progress from './screens/Progress/Progress';
+import Advisor from './screens/Advisor/Advisor';
 
-const App = () => {
-  const isDarkMode = useColorScheme() === 'dark';
+const Tab = createBottomTabNavigator();
+const tabScreenOptions = ({route}) => ({
+  tabBarIcon: ({focused, color, size}) => {
+    let iconName;
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? '#111' : '#fff',
-    flexGrow: 1,
-  };
+    if (route.name === 'Track') {
+      iconName = 'verified';
+    } else if (route.name === 'Progress') {
+      iconName = focused ? 'poll' : 'poll';
+    } else if (route.name === 'Advisor') {
+      iconName = 'menu-book';
+    }
 
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <View style={styles.container}>
-          <MaterialIcon name="weight-lifter" size={50} color="orange" />
-          <Text style={isDarkMode ? styles.lightTitle : styles.darkTitle}>
-            AmFIT: Diet Advisor
-          </Text>
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-};
-
-const styles = StyleSheet.create({
-  container: {
-    marginTop: 50,
-    flex: 1,
-    alignItems: 'center',
-  },
-  lightTitle: {
-    fontSize: 26,
-    color: '#fff',
-    fontWeight: '600',
-  },
-  darkTitle: {
-    fontSize: 26,
-    color: '#000',
-    fontWeight: '600',
+    // You can return any component that you like here!
+    return <MaterialIcon name={iconName} size={size} color={color} />;
   },
 });
+
+const App = () => {
+  return (
+    <NavigationContainer>
+      <Tab.Navigator
+        screenOptions={tabScreenOptions}
+        tabBarOptions={{activeTintColor: '#C62828'}}>
+        <Tab.Screen name="Track" component={Track} />
+        <Tab.Screen name="Progress" component={Progress} />
+        <Tab.Screen name="Advisor" component={Advisor} />
+      </Tab.Navigator>
+    </NavigationContainer>
+  );
+};
 
 export default App;
