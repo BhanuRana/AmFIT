@@ -6,6 +6,7 @@ import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import Track from './screens/Track/Track';
 import Progress from './screens/Progress/Progress';
 import Advisor from './screens/Advisor/Advisor';
+import Colors from './utils/Colors';
 
 const Tab = createBottomTabNavigator();
 const tabScreenOptions = ({route}) => ({
@@ -30,7 +31,7 @@ const App = () => {
     <NavigationContainer>
       <Tab.Navigator
         screenOptions={tabScreenOptions}
-        tabBarOptions={{activeTintColor: '#C62828'}}>
+        tabBarOptions={{activeTintColor: Colors.red}}>
         <Tab.Screen name="Track" component={Track} />
         <Tab.Screen name="Progress" component={Progress} />
         <Tab.Screen name="Advisor" component={Advisor} />
