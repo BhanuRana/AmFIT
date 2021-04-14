@@ -1,10 +1,10 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {TouchableOpacity, View, Text, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Colors from '../../utils/Colors';
 
 const WeighingScale = props => {
-  const {weight = ''} = props;
+  const {weight = '', updateWeight} = props;
 
   return (
     <View style={styles.container}>
@@ -13,7 +13,10 @@ const WeighingScale = props => {
         <Icon name="scale-bathroom" color={Colors.gray} size={80} />
       </View>
       <View>
-        <Text style={styles.weightText}>{weight}</Text>
+        <Text style={styles.weightText}>{weight + ' kg'}</Text>
+        <TouchableOpacity onPress={updateWeight}>
+          <Text style={styles.updateBtnText}>UPDATE</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -35,7 +38,19 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   sectionTitle: {fontSize: 22, fontWeight: 'bold', color: Colors.black},
-  weightText: {fontSize: 36, fontWeight: '600'},
+  weightText: {
+    fontSize: 36,
+    fontWeight: '600',
+    borderBottomWidth: 1,
+    paddingBottom: 8,
+    borderColor: '#e5e5e5',
+  },
+  updateBtnText: {
+    alignSelf: 'center',
+    padding: 8,
+    fontWeight: 'bold',
+    color: Colors.green,
+  },
 });
 
 export default WeighingScale;
