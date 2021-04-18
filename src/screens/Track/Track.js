@@ -26,7 +26,10 @@ const Track = props => {
   };
 
   const navigateToAddMealIntake = type => {
-    alert('navigate to AddMeal screen: ' + type); // update docId
+    navigation.navigate('AddMealIntake', {
+      docId,
+      type,
+    });
   };
 
   const navigateToUpdateWeight = () => {

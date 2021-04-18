@@ -6,6 +6,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import Track from './screens/Track/Track';
 import ShowMealIntakes from './screens/ShowMealIntakes/ShowMealIntakes';
+import AddMealIntake from './screens/AddMealIntake/AddMealIntake';
 import UpdateWeight from './screens/UpdateWeight/UpdateWeight';
 import Progress from './screens/Progress/Progress';
 import Advisor from './screens/Advisor/Advisor';
@@ -54,6 +55,7 @@ const App = () => {
         />
         <Stack.Screen name="UpdateWeight" component={UpdateWeight} />
         <Stack.Screen name="ShowMealIntakes" component={ShowMealIntakes} />
+        <Stack.Screen name="AddMealIntake" component={AddMealIntake} />
       </Stack.Navigator>
     </NavigationContainer>
   );
