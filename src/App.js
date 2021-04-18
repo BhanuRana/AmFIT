@@ -5,6 +5,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import Track from './screens/Track/Track';
+import ShowMealIntakes from './screens/ShowMealIntakes/ShowMealIntakes';
 import UpdateWeight from './screens/UpdateWeight/UpdateWeight';
 import Progress from './screens/Progress/Progress';
 import Advisor from './screens/Advisor/Advisor';
@@ -52,6 +53,7 @@ const App = () => {
           options={{header: () => null}}
         />
         <Stack.Screen name="UpdateWeight" component={UpdateWeight} />
+        <Stack.Screen name="ShowMealIntakes" component={ShowMealIntakes} />
       </Stack.Navigator>
     </NavigationContainer>
   );

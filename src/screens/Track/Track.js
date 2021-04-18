@@ -8,6 +8,8 @@ import WeighingScale from '../../components/WeighingScale/WeighingScale';
 const Track = props => {
   const {navigation} = props;
 
+  const docId = '18/04/2021';
+
   let calorieGoalToday = 2500;
   let caloriesConsumedToday = 2200;
 
@@ -15,9 +17,21 @@ const Track = props => {
 
   let weightToday = '64.20';
 
+  const navigateToShowMealIntakes = (mealTime = '', mealArray = []) => {
+    navigation.navigate('ShowMealIntakes', {
+      docId,
+      mealTime,
+      mealArray,
+    });
+  };
+
+  const navigateToAddMealIntake = type => {
+    alert('navigate to AddMeal screen: ' + type); // update docId
+  };
+
   const navigateToUpdateWeight = () => {
     navigation.navigate('UpdateWeight', {
-      docId: '14/04/2021',
+      docId,
       weight: weightToday,
     });
   };
@@ -25,7 +39,11 @@ const Track = props => {
   return (
     <ScrollView contentContainerStyle={styles.flexGrow1}>
       <CalorieMeter consumed={caloriesConsumedToday} goal={calorieGoalToday} />
-      <FoodDiary intake={intake} />
+      <FoodDiary
+        intake={intake}
+        showMealIntakes={navigateToShowMealIntakes}
+        addMealIntake={navigateToAddMealIntake}
+      />
       <WeighingScale
         weight={weightToday}
         updateWeight={navigateToUpdateWeight}
