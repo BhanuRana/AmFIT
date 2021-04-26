@@ -1,0 +1,1 @@
+export const SET_CALORIE_GOAL = 'SET_CALORIE_GOAL';

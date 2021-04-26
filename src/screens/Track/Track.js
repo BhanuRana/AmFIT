@@ -1,6 +1,5 @@
 import React from 'react';
-import {ScrollView} from 'react-native';
-import styles from './styles';
+import {ScrollView, StyleSheet} from 'react-native';
 import CalorieMeter from '../../components/CalorieMeter/CalorieMeter';
 import FoodDiary from '../../components/FoodDiary/FoodDiary';
 import WeighingScale from '../../components/WeighingScale/WeighingScale';
@@ -54,5 +53,9 @@ const Track = props => {
     </ScrollView>
   );
 };
+
+const styles = StyleSheet.create({
+  flexGrow1: {flexGrow: 1},
+});
 
 export default Track;

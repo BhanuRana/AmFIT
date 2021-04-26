@@ -1,16 +1,18 @@
 import 'react-native-gesture-handler';
 import React from 'react';
+import {Provider as StoreProvider} from 'react-redux';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
-import Track from './screens/Track/Track';
+import Track from './screens/Track';
 import ShowMealIntakes from './screens/ShowMealIntakes/ShowMealIntakes';
 import AddMealIntake from './screens/AddMealIntake/AddMealIntake';
 import UpdateWeight from './screens/UpdateWeight/UpdateWeight';
 import Progress from './screens/Progress/Progress';
 import Advisor from './screens/Advisor/Advisor';
 import Colors from './utils/Colors';
+import store from './redux/store';
 
 const Tab = createBottomTabNavigator();
 const tabScreenOptions = ({route}) => ({
@@ -46,18 +48,20 @@ const Stack = createStackNavigator();
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Tabs"
-          component={TabNavigator}
-          options={{header: () => null}}
-        />
-        <Stack.Screen name="UpdateWeight" component={UpdateWeight} />
-        <Stack.Screen name="ShowMealIntakes" component={ShowMealIntakes} />
-        <Stack.Screen name="AddMealIntake" component={AddMealIntake} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <StoreProvider store={store}>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen
+            name="Tabs"
+            component={TabNavigator}
+            options={{header: () => null}}
+          />
+          <Stack.Screen name="UpdateWeight" component={UpdateWeight} />
+          <Stack.Screen name="ShowMealIntakes" component={ShowMealIntakes} />
+          <Stack.Screen name="AddMealIntake" component={AddMealIntake} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </StoreProvider>
   );
 };
 

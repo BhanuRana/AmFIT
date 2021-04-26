@@ -1,7 +1,6 @@
 import React from 'react';
-import {ScrollView} from 'react-native';
+import {ScrollView, StyleSheet} from 'react-native';
 import WeightInput from '../../components/WeightInput/WeightInput';
-import styles from './styles';
 
 const UpdateWeight = props => {
   const {route, navigation} = props;
@@ -20,5 +19,9 @@ const UpdateWeight = props => {
     </ScrollView>
   );
 };
+
+const styles = StyleSheet.create({
+  flexGrow1: {flexGrow: 1},
+});
 
 export default UpdateWeight;
