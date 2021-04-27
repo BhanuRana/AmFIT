@@ -25,31 +25,32 @@ const Meal = ({type, calorieCount, showMealIntakes, addMealIntake}) => {
 };
 
 const FoodDiary = props => {
-  const {intake, showMealIntakes, addMealIntake} = props;
-
-  // calculate these from props.intake
-  const breakfastCalCount = 900;
-  const lunchCalCount = 700;
-  const dinnerCalCount = 600;
+  const {
+    breakfastCalorie,
+    lunchCalorie,
+    dinnerCalorie,
+    showMealIntakes,
+    addMealIntake,
+  } = props;
 
   return (
     <View style={styles.container}>
       <Text style={styles.sectionTitle}>Food Diary</Text>
       <Meal
         type="Breakfast"
-        calorieCount={breakfastCalCount}
+        calorieCount={breakfastCalorie}
         showMealIntakes={showMealIntakes}
         addMealIntake={addMealIntake}
       />
       <Meal
         type="Lunch"
-        calorieCount={lunchCalCount}
+        calorieCount={lunchCalorie}
         showMealIntakes={showMealIntakes}
         addMealIntake={addMealIntake}
       />
       <Meal
         type="Dinner"
-        calorieCount={dinnerCalCount}
+        calorieCount={dinnerCalorie}
         showMealIntakes={showMealIntakes}
         addMealIntake={addMealIntake}
       />

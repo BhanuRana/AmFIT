@@ -2,9 +2,27 @@ import {connect} from 'react-redux';
 import Track from './Track';
 
 const mapStateToProps = state => {
-  console.log(state);
+  let breakfastCalorie = state.app.todayBreakfast.reduce(
+    (sum, item) => sum + item.calories,
+    0,
+  );
+
+  let lunchCalorie = state.app.todayLunch.reduce(
+    (sum, item) => sum + item.calories,
+    0,
+  );
+
+  let dinnerCalorie = state.app.todayDinner.reduce(
+    (sum, item) => sum + item.calories,
+    0,
+  );
+
   return {
-    app: state.app,
+    calorieGoal: state.app.calorieGoal,
+    breakfastCalorie: breakfastCalorie,
+    lunchCalorie: lunchCalorie,
+    dinnerCalorie: dinnerCalorie,
+    weightToday: state.app.weightToday,
   };
 };
 
