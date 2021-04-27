@@ -1,5 +1,6 @@
 import 'react-native-gesture-handler';
 import React from 'react';
+import {StatusBar} from 'react-native';
 import {Provider as StoreProvider} from 'react-redux';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
@@ -49,6 +50,7 @@ const Stack = createStackNavigator();
 const App = () => {
   return (
     <StoreProvider store={store}>
+      <StatusBar backgroundColor={'#f7f7f7'} barStyle="dark-content" />
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen
