@@ -1,5 +1,6 @@
 import 'react-native-gesture-handler';
-import React from 'react';
+import React, {useEffect} from 'react';
+import RNBootSplash from 'react-native-bootsplash';
 import {StatusBar} from 'react-native';
 import {Provider as StoreProvider} from 'react-redux';
 import {NavigationContainer} from '@react-navigation/native';
@@ -48,6 +49,10 @@ const TabNavigator = () => {
 const Stack = createStackNavigator();
 
 const App = () => {
+  useEffect(() => {
+    RNBootSplash.hide();
+  }, []);
+
   return (
     <StoreProvider store={store}>
       <StatusBar backgroundColor={'#f7f7f7'} barStyle="dark-content" />
