@@ -1,5 +1,6 @@
 import React from 'react';
-import {ScrollView, View, Text, StyleSheet} from 'react-native';
+import {ScrollView, StyleSheet} from 'react-native';
+import Header from '../../components/Header/Header';
 import ConsumptionBarChart from '../../components/ConsumptionBarChart/ConsumptionBarChart';
 import WeeklyAverage from '../../components/WeeklyAverage/WeeklyAverage';
 
@@ -9,10 +10,7 @@ const Progress = () => {
 
   return (
     <ScrollView contentContainerStyle={styles.flexGrow1}>
-      <View>
-        <Text>Weekly Progress</Text>
-      </View>
-
+      <Header title="Weekly Progress" />
       <ConsumptionBarChart goal={calorieGoal} data={data} />
       <WeeklyAverage calorie={2400} weight={64.2} />
     </ScrollView>
