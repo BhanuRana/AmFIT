@@ -1,6 +1,7 @@
 import React from 'react';
 import {ScrollView, View, Text, StyleSheet} from 'react-native';
 import ConsumptionBarChart from '../../components/ConsumptionBarChart/ConsumptionBarChart';
+import WeeklyAverage from '../../components/WeeklyAverage/WeeklyAverage';
 
 const Progress = () => {
   const calorieGoal = 2200;
@@ -13,6 +14,7 @@ const Progress = () => {
       </View>
 
       <ConsumptionBarChart goal={calorieGoal} data={data} />
+      <WeeklyAverage calorie={2400} weight={64.2} />
     </ScrollView>
   );
 };
