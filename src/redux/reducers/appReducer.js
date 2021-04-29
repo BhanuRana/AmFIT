@@ -56,6 +56,7 @@ const appReducer = (state = initState, action) => {
     case UPDATE_WEIGHT_TODAY:
       return {
         ...state,
+        weightToday: payload.weight,
       };
 
     default:

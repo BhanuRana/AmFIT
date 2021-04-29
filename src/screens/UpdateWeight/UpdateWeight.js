@@ -3,19 +3,18 @@ import {ScrollView, StyleSheet} from 'react-native';
 import WeightInput from '../../components/WeightInput/WeightInput';
 
 const UpdateWeight = props => {
-  const {route, navigation} = props;
+  const {route, navigation, weightToday, updateWeight} = props;
 
-  const {weight, docId} = route.params;
+  const {docId} = route.params;
 
   const weightUpdateHandler = newWeight => {
-    console.log(
-      `Update weight from ${weight} to ${newWeight} for document: ${docId}`,
-    );
+    updateWeight(+newWeight);
+    navigation.goBack();
   };
 
   return (
     <ScrollView contentContainerStyle={styles.flexGrow1}>
-      <WeightInput placeholder={weight} onSubmit={weightUpdateHandler} />
+      <WeightInput placeholder={weightToday} onSubmit={weightUpdateHandler} />
     </ScrollView>
   );
 };
