@@ -11,7 +11,7 @@ import Track from './screens/Track';
 import ShowMealIntakes from './screens/ShowMealIntakes';
 import AddMealIntake from './screens/AddMealIntake/AddMealIntake';
 import UpdateWeight from './screens/UpdateWeight/UpdateWeight';
-import Progress from './screens/Progress/Progress';
+import Progress from './screens/Progress';
 import Advisor from './screens/Advisor/Advisor';
 import Colors from './utils/Colors';
 import store from './redux/store';
