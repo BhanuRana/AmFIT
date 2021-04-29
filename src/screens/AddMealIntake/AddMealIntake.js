@@ -10,11 +10,21 @@ import Colors from '../../utils/Colors';
 import IntakeInput from '../../components/IntakeInput/IntakeInput';
 
 const AddMealIntake = props => {
+  const {route, navigation, addBreakfast, addLunch, addDinner} = props;
+  const {docId, mealTime} = route.params;
+
   const [mealName, setMealName] = useState('');
   const [calories, setCalories] = useState('');
 
   const addMeal = () => {
-    alert(`Add meal ${mealName} with ${calories} cal`);
+    if (mealTime === 'Breakfast')
+      addBreakfast({meal: mealName, calories: +calories});
+    else if (mealTime === 'Lunch')
+      addLunch({meal: mealName, calories: +calories});
+    else if (mealTime === 'Dinner')
+      addDinner({meal: mealName, calories: +calories});
+
+    navigation.goBack();
   };
 
   return (

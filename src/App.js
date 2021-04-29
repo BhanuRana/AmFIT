@@ -9,7 +9,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import Track from './screens/Track';
 import ShowMealIntakes from './screens/ShowMealIntakes';
-import AddMealIntake from './screens/AddMealIntake/AddMealIntake';
+import AddMealIntake from './screens/AddMealIntake';
 import UpdateWeight from './screens/UpdateWeight';
 import Progress from './screens/Progress';
 import Advisor from './screens/Advisor/Advisor';

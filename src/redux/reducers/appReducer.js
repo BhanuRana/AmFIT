@@ -38,19 +38,19 @@ const appReducer = (state = initState, action) => {
     case ADD_BREAKFAST_MEAL:
       return {
         ...state,
-        todayBreakfast: [...todayBreakfast, payload.intake],
+        todayBreakfast: [...state.todayBreakfast, payload.intake],
       };
 
     case ADD_LUNCH_MEAL:
       return {
         ...state,
-        todayLunch: [...todayLunch, payload.intake],
+        todayLunch: [...state.todayLunch, payload.intake],
       };
 
     case ADD_DINNER_MEAL:
       return {
         ...state,
-        todayDinner: [...todayDinner, payload.intake],
+        todayDinner: [...state.todayDinner, payload.intake],
       };
 
     case UPDATE_WEIGHT_TODAY:

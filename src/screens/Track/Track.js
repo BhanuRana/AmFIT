@@ -26,10 +26,10 @@ const Track = props => {
     });
   };
 
-  const navigateToAddMealIntake = type => {
+  const navigateToAddMealIntake = mealTime => {
     navigation.navigate('AddMealIntake', {
       docId,
-      type,
+      mealTime,
     });
   };
 
